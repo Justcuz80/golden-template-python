@@ -2,7 +2,7 @@
 
 help:
 	@echo "make venv      - create virtual environment"
-	@echo "make install   - install dev dependencies"
+	@echo "make install   - install project and dev dependencies"
 	@echo "make format    - auto-format and fix lint issues"
 	@echo "make lint      - run lint checks (no changes)"
 	@echo "make test      - run tests"
@@ -14,7 +14,7 @@ venv:
 	python3 -m venv .venv
 
 install:
-	. .venv/bin/activate && pip install -U pip && pip install ruff pytest pre-commit
+	. .venv/bin/activate && pip install -U pip && pip install -e . ruff pytest pre-commit
 
 format:
 	ruff check . --fix
@@ -28,11 +28,10 @@ test:
 	pytest
 
 run:
-	PYTHONPATH=src python -m app.cli
+	golden-template
 
 check: lint test
 
 clean:
 	rm -rf .pytest_cache .ruff_cache __pycache__ .coverage .mypy_cache
 	find . -type d -name "__pycache__" -prune -exec rm -rf {} ; 2>/dev/null || true
-

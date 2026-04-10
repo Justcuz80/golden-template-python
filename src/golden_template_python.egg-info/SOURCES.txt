@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/app/__init__.py
+src/app/cli.py
+src/app/config.py
+src/app/hello.py
+src/app/logging_config.py
+src/golden_template_python.egg-info/PKG-INFO
+src/golden_template_python.egg-info/SOURCES.txt
+src/golden_template_python.egg-info/dependency_links.txt
+src/golden_template_python.egg-info/entry_points.txt
+src/golden_template_python.egg-info/requires.txt
+src/golden_template_python.egg-info/top_level.txt
+tests/test_cli.py
+tests/test_config.py
+tests/test_hello.py

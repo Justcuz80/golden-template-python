@@ -1,8 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "golden-template-python"
 version = "0.1.0"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+"python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+golden-template = "app.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.ruff]
 line-length = 100
@@ -19,3 +34,4 @@ quote-style = "double"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
