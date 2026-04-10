@@ -6,6 +6,7 @@ help:
 	@echo "make format    - auto-format and fix lint issues"
 	@echo "make lint      - run lint checks (no changes)"
 	@echo "make test      - run tests"
+	@echo "make run       - run the application"
 	@echo "make check     - lint + test"
 	@echo "make clean     - remove caches"
 
@@ -26,8 +27,12 @@ lint:
 test:
 	pytest
 
+run:
+	PYTHONPATH=src python -m app.cli
+
 check: lint test
 
 clean:
 	rm -rf .pytest_cache .ruff_cache __pycache__ .coverage .mypy_cache
-	find . -type d -name "__pycache__" -prune -exec rm -rf {} \; 2>/dev/null || true
+	find . -type d -name "__pycache__" -prune -exec rm -rf {} ; 2>/dev/null || true
+
