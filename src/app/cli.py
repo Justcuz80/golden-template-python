@@ -22,11 +22,12 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     """Run the application CLI."""
     settings = Settings.from_env()
-    configure_logging(settings.log_level)
+    configure_logging(settings.log_level, settings.log_file)
 
     logger.info("Application started")
     logger.info("Loaded application settings")
     logger.info("Running in environment: %s", settings.app_env)
+    logger.info("Writing logs to: %s", settings.log_file)
 
     args = parse_args()
     name = args.name if args.name is not None else settings.default_name

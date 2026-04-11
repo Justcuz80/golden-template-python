@@ -13,6 +13,7 @@ class Settings:
     default_name: str
     log_level: str
     app_env: str
+    log_file: str
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -21,4 +22,5 @@ class Settings:
             default_name=os.getenv("APP_DEFAULT_NAME", "Justin"),
             log_level=os.getenv("APP_LOG_LEVEL", "INFO").upper(),
             app_env=os.getenv("APP_ENV", "development"),
+            log_file=os.getenv("APP_LOG_FILE", "logs/app.log"),
         )
